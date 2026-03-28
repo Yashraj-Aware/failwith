@@ -40,7 +40,7 @@ ModuleNotFoundError: No module named 'cv2'
 
 ## Features
 
-###  200+ Import Name → Package Name Mappings
+### 1. 200+ Import Name → Package Name Mappings
 
 `cv2` → `opencv-python`, `PIL` → `Pillow`, `sklearn` → `scikit-learn`, `yaml` → `PyYAML`, and 200+ more. Never Google "pip install what?" again.
 
@@ -48,23 +48,23 @@ ModuleNotFoundError: No module named 'cv2'
 
 Not pattern matching — actual context analysis. When a `ConnectionRefusedError` hits on port 5432, failwith knows that's PostgreSQL and suggests the right start command for your OS.
 
-###  Fuzzy Matching for Typos
+### 2. Fuzzy Matching for Typos
 
 `KeyError`, `AttributeError`, and `NameError` get fuzzy-matched against available keys, attributes, and names. "Did you mean 'username'?" with edit distance.
 
-###  File System Intelligence
+### 3. File System Intelligence
 
 `FileNotFoundError` shows similar files in the directory, current working directory, and the closest existing parent path. `PermissionError` shows file ownership and suggests `chmod`/`chown` commands.
 
-###  Environment Diagnostics
+### 4. Environment Diagnostics
 
 Every suggestion includes Python version, venv status, and OS — the three things you always need when debugging.
 
-###  Zero Dependencies
+### 5. Zero Dependencies
 
 Uses only the Python standard library. No `rich`, no `click`, nothing. Zero friction to adopt.
 
-###  Never Makes Things Worse
+### 6. Never Makes Things Worse
 
 If failwith itself encounters an error, it silently degrades. Your original traceback is always printed first, unmodified.
 
