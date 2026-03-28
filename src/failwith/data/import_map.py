@@ -7,8 +7,11 @@ cases where `import X` requires `pip install Y` (and X != Y).
 Community contributions welcome!
 """
 
+from __future__ import annotations
+from typing import Optional, Tuple
+
 # import_name -> (pip_package_name, optional_notes)
-IMPORT_TO_PACKAGE: dict = {
+IMPORT_TO_PACKAGE: dict[str, Tuple[str, Optional[str]]] = {
     # === Computer Vision & Image Processing ===
     "cv2": ("opencv-python", "Use opencv-python-headless for server environments"),
     "PIL": ("Pillow", None),
@@ -176,7 +179,7 @@ IMPORT_TO_PACKAGE: dict = {
 }
 
 
-def lookup_package(import_name: str) -> tuple | None:
+def lookup_package(import_name: str) -> Optional[Tuple[str, Optional[str]]]:
     """
     Look up the pip package name for a given import name.
 
