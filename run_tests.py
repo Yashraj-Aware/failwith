@@ -8,6 +8,11 @@ import os
 import json
 import traceback
 
+# Fix Windows console encoding — cp1252 can't handle emoji
+if sys.platform == "win32":
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+    sys.stderr.reconfigure(encoding="utf-8", errors="replace")
+
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), "src"))
 
 from failwith.core.analyzer import analyze_exception
