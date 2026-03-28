@@ -1,0 +1,36 @@
+# .failwith.toml — Team-specific error suggestions
+# Place this file in your project root. failwith will auto-discover it.
+#
+# Each [[suggestions]] block defines a custom suggestion for a specific
+# error pattern. This lets your team codify tribal knowledge about
+# common project-specific errors.
+
+[[suggestions]]
+exception = "ConnectionRefusedError"
+message_contains = "port 8080"
+title = "API Gateway is down"
+fixes = [
+    "Run: make start-gateway",
+    "Check: docker-compose logs gateway",
+    "Fallback: Use GATEWAY_URL=http://staging.internal:8080",
+]
+
+[[suggestions]]
+exception = "FileNotFoundError"
+message_contains = ".env"
+title = "Missing .env file"
+fixes = [
+    "Copy the template: cp .env.example .env",
+    "Ask a team member for secrets",
+    "Docs: https://wiki.internal/env-setup",
+]
+
+[[suggestions]]
+exception = "ConnectionRefusedError"
+message_contains = "port 5432"
+title = "Local PostgreSQL is not running"
+fixes = [
+    "Start the database: docker-compose up -d db",
+    "Or use the staging DB: export DATABASE_URL=postgres://staging.internal/myapp",
+    "Reset the database: make db-reset",
+]

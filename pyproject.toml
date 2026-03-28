@@ -1,0 +1,53 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "failwith"
+version = "0.1.0"
+description = "Actionable error intelligence for Python — tells you why errors happen and how to fix them."
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.9"
+authors = [
+    {name = "Yashraj Aware", email = "yashrajaware2003@gmail.com"},
+]
+keywords = ["errors", "traceback", "debugging", "developer-tools", "exceptions", "diagnostics"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Software Development :: Debuggers",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Typing :: Typed",
+]
+
+[project.optional-dependencies]
+rich = ["rich>=12.0.0"]
+dev = [
+    "pytest>=7.0",
+    "pytest-cov>=4.0",
+    "ruff>=0.4.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/Yashraj-Aware/failwith.git"
+Repository = "https://github.com/Yashraj-Aware/failwith"
+Issues = "https://github.com/Yashraj-Aware/failwith/issues"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py39"
