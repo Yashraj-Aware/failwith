@@ -97,14 +97,8 @@ class TestImportError:
 class TestConnectionErrors:
     def test_connection_refused_with_port(self):
         """ConnectionRefusedError should suggest service start commands."""
-        import socket
         def connect_refused():
-            s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-            s.settimeout(0.1)
-            try:
-                s.connect(("127.0.0.1", 59999))
-            finally:
-                s.close()
+            raise ConnectionRefusedError("[Errno 111] Connection refused")
 
         s = get_suggestion(connect_refused)
         assert s is not None
